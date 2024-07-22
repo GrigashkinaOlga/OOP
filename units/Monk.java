@@ -9,8 +9,8 @@ public class Monk extends Character {
     private int attackPrice;
 
 
-    public Monk(String name, int age) {
-        super(name, age, 70, 40, "arrow", 20, 5, 3245);
+    public Monk(String name, int x, int y) {
+        super(name, 3, 70, 40, "arrow", 20, 5, 32, x, y);
         this.mana = 10;
         this.healPrice = 2;
         this.attackPrice = 1;
@@ -35,6 +35,11 @@ public class Monk extends Character {
         if (action == "heal") return healPrice;
         else if (action == "attack") return attackPrice;
         return 0;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("[Монах] " + name + " " + position);
     }
 
 }

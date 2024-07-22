@@ -6,8 +6,8 @@ public class Wizard extends Character {
     private int healPrice;
     private int attackPrice;
 
-    public Wizard(String name, int age) {
-        super(name, age, 80, 40, "stick", 80, 60, 90);
+    public Wizard(String name, int x, int y) {
+        super(name, 2, 80, 40, "stick", 80, 60, 90, x, y);
         this.mana = 10;
         this.healPrice = 2;
         this.attackPrice = 1;
@@ -33,6 +33,11 @@ public class Wizard extends Character {
         if (action == "heal") return healPrice;
         else if (action == "attack") return attackPrice;
         return 0;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("[Колдун] " + name + " " + position);
     }
 
 

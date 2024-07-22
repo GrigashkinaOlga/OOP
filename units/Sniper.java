@@ -1,5 +1,7 @@
 package units;
 
+import java.util.ArrayList;
+
 // лучник
 
 
@@ -8,8 +10,8 @@ public class Sniper extends Character {
     private int arrowsNum;
     boolean inGame = true;
     
-    public Sniper(String name, int age) {
-        super(name, age, 60, 50, "gun", 30, 20, 60);
+    public Sniper(String name, int x, int y) {
+        super(name, 2, 60, 50, "gun", 30, 20, 60, x, y);
 
     }
 
@@ -26,6 +28,27 @@ public class Sniper extends Character {
 
     public boolean isInGame() {
         return this.arrowsNum == 0 ? false : true;
+    }
+
+    public Character findNearestEnemy(ArrayList<Character> enemies) {
+        Character target = null;
+        double distance = Integer.MAX_VALUE;
+
+        for (Character ch : enemies) 
+        {
+            double n = ch.distanceTo(this);
+            if (n < distance) 
+            {
+                distance = n;
+                target = ch;
+            }
+        }
+        return target;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("[Лучник] " + name + " " + position);
     }
 
 }
