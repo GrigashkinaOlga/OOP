@@ -1,13 +1,15 @@
 package units;
 
+import java.util.ArrayList;
+
 public class Wizard extends Character {
     private int mana;
     private int healVal;
     private int healPrice;
     private int attackPrice;
 
-    public Wizard(String name, int x, int y) {
-        super(name, 2, 80, 40, "stick", 80, 60, 90, x, y);
+    public Wizard(String name, Point2D pos) {
+        super(name, 2, 44, 61, 50, 85, 31, pos);
         this.mana = 10;
         this.healPrice = 2;
         this.attackPrice = 1;
@@ -39,6 +41,12 @@ public class Wizard extends Character {
     public String toString() {
         return String.format("[Колдун] " + name + " " + position);
     }
+
+    @Override
+    public void step(ArrayList<Character> enemies) {
+
+    }
+
 
 
 

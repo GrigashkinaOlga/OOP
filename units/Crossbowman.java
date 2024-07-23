@@ -1,9 +1,11 @@
 package units;
 
+import java.util.ArrayList;
+
 public class Crossbowman extends Character {
 
-    public Crossbowman(String name, int x, int y) {
-        super(name, 2, 44, 61, "stick", 85, 31, 29, x, y);
+    public Crossbowman(String name, Point2D pos) {
+        super(name, 2, 44, 61, 50, 85, 31, pos);
     }
 
     public void attack(Character character) {
@@ -13,5 +15,11 @@ public class Crossbowman extends Character {
     @Override
     public String toString() {
         return String.format("[Арбалетчик] " + name + " " + position);
+    }
+
+
+    @Override
+    public void step(ArrayList<Character> enemies) {
+
     }
 }

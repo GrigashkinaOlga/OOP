@@ -21,8 +21,11 @@ public class Point2D {
     public int getX() {return curX;}
     public int getY() {return curX;}
 
-    public void setX(int x) {curX=x;}
-    public void setY(int y) {curY=y;}
+    public void setXY(int x, int y)
+    {
+        curX = x;
+        curY = y;
+    }
 
     public void moveTo(int dx, int dy) {
         if (isMove(dx+curX, dy+curY)) {
@@ -33,6 +36,11 @@ public class Point2D {
 
     public String toString() {
         return curX + ":" +curY;
+    }
+
+    public float distanceTo(Point2D position) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'distanceTo'");
     }
 
 

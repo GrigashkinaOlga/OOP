@@ -1,12 +1,14 @@
 package units;
 
+import java.util.ArrayList;
+
 // разбойник
 
 
 public class Robber extends Character {
     
-    public Robber(String name, int x, int y) {
-        super(name, 5, 78, 61, "knife", 10, 56, 59, x, y);
+    public Robber(String name, Point2D pos) {
+        super(name, 2, 44, 61, 50, 85, 31, pos);
 
     }
 
@@ -15,15 +17,17 @@ public class Robber extends Character {
 
     }
 
-    public void stealGold(int val) {
-        this.gold += val;
-
-    }
 
     @Override
     public String toString() {
         return String.format("[Разбойник] " + name + " " + position);
     }
+
+    @Override
+    public void step(ArrayList<Character> enemies) {
+
+    }
+
 
 
 }

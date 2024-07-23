@@ -1,5 +1,7 @@
 package units;
 
+import java.util.ArrayList;
+
 // монах
 
 public class Monk extends Character {
@@ -9,8 +11,8 @@ public class Monk extends Character {
     private int attackPrice;
 
 
-    public Monk(String name, int x, int y) {
-        super(name, 3, 70, 40, "arrow", 20, 5, 32, x, y);
+    public Monk(String name, Point2D pos) {
+        super(name, 2, 44, 61, 50, 85, 31, pos);
         this.mana = 10;
         this.healPrice = 2;
         this.attackPrice = 1;
@@ -41,6 +43,13 @@ public class Monk extends Character {
     public String toString() {
         return String.format("[Монах] " + name + " " + position);
     }
+
+    @Override
+    public void step(ArrayList<Character> enemies) {
+
+    }
+
+
 
 }
 

@@ -18,7 +18,7 @@ public class main {
         System.out.println(red + "\n");
         System.out.println(blue);
 
-        Sniper sniper = new Sniper("Arny", 7, 4);
+        Sniper sniper = new Sniper("Arny", new Point2D(3, 4));
         Character target = sniper.findNearestEnemy(blue);
         System.out.println("Nearnest blue target at  " + target);
         target = sniper.findNearestEnemy(red);
@@ -35,25 +35,25 @@ public class main {
             switch (n)
             {
                 case 0:
-                    team.add(new Pikeman(getName(), 0, num));
+                    team.add(new Pikeman(getName(), new Point2D(0, num)));
                     break;
                 case 1:
-                    team.add(new Crossbowman(getName(), 0, num));
+                    team.add(new Crossbowman(getName(), new Point2D(0, num)));
                     break;
                 case 2:
-                    team.add(new Wizard(getName(), 0, num));
+                    team.add(new Wizard(getName(), new Point2D(0, num)));
                     break;
                 case 3:
-                    team.add(new Peasant(getName(), start*3, num));
+                    team.add(new Peasant(getName(), new Point2D(start*3, num)));
                     break;
                 case 4:
-                    team.add(new Monk(getName(), 9, num));
+                    team.add(new Monk(getName(), new Point2D(9, num)));
                     break;
                 case 5:
-                    team.add(new Sniper(getName(), 9, num));
+                    team.add(new Sniper(getName(), new Point2D(9, num)));
                     break;
                 case 6:
-                    team.add(new Robber(getName(), 9, num));
+                    team.add(new Robber(getName(), new Point2D(9, num)));
                     break;
 
             }
@@ -63,6 +63,7 @@ public class main {
     private static String getName(){
         return String.valueOf(Names.values()[new Random().nextInt(Names.values().length)]);
     }
+       
 
     
 }

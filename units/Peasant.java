@@ -1,13 +1,15 @@
 package units;
 
+import java.util.ArrayList;
+
 // крестьянин
 public class Peasant extends Character {
 
     private int arrowsNum;
     boolean inGame = true;
 
-    public Peasant(String name, int x, int y) {
-        super(name, 1, 66, 30, "arrow", 10, 5, 32, x, y);
+    public Peasant(String name, Point2D pos) {
+        super(name, 2, 44, 61, 50, 85, 31, pos);
     }
 
     public void giveArrows(int val) {
@@ -25,6 +27,14 @@ public class Peasant extends Character {
     public String toString() {
         return String.format("[Крестьянин] " + name + " " + position);
     }
+
+    @Override
+    public void step(ArrayList<Character> enemies) {
+
+    }
+
+
+    
 
 
 }
