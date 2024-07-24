@@ -5,22 +5,54 @@ import java.util.ArrayList;
 // крестьянин
 public class Peasant extends Character {
 
-    private int arrowsNum;
-    boolean inGame = true;
+    private static final int FULL_BAG = 240;
+
+    private int bag;  // сколько стрел имеем с собой
 
     public Peasant(String name, Point2D pos) {
-        super(name, 2, 44, 61, 50, 85, 31, pos);
+        super(name, 0, 500, 30, 30, 0, 1, pos);
+        bag = FULL_BAG;
     }
 
-    public void giveArrows(int val) {
-        this.arrowsNum -= val;
-        if (!isInGame()) {
-            inGame = false;
+
+    @Override
+    public void step(ArrayList<Character> enemies, ArrayList<Character> friends)
+    {
+        history = "";
+
+        if (health <= 0 || bag <= 0)
+            return;
+        Sniper s = (Sniper) getShooter(friends);
+        if (s != null)
+        {
+            if (s.getArrows() < s.getMaxArrows())
+            {
+                s.setArrows(s.getArrows()+1);
+                bag--;
+                history = String.format(" дал стрелу %s", s);
+            }
         }
     }
 
-    public boolean isInGame() {
-        return this.arrowsNum == 0 ? false : true;
+// Ищет подходящего стрелка, с наименьшим запасом стрел
+
+    private Character getShooter(ArrayList<Character> friends)
+    {
+        Character ch = null;
+        int min = Integer.MAX_VALUE;
+
+        for (Character friend : friends)
+        {
+            if (friend.getHeals() > 0 && friend instanceof Character)
+            {
+                if (min > ((Sniper) friend).getArrows())
+                {
+                    min = ((Sniper) friend).getArrows();
+                    ch = friend;
+                }
+            }
+        }
+        return ch;
     }
 
     @Override

@@ -1,16 +1,20 @@
 package units;
-public class Point2D {
-    int curX;
-    int curY;
 
-    int width;
-    int height;
+public class Point2D {
+    private int curX;
+    private int curY;
+
+    private static int width;
+    private static int height;
+
+    static {
+        width = 10;
+        height = 10;
+    }
 
     public Point2D(int x, int y) {
         curX = x;
         curY = y;
-        width = 10;
-        height = 10;
     }
 
     public boolean isMove(int x, int y) {

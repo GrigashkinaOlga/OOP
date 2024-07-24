@@ -1,6 +1,8 @@
 package units;
 
 
+
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -25,7 +27,7 @@ public abstract class Character implements ActionInterface {
 
     protected String history;
 
-    public Character(String name, int priority, int health, int power, int agility, int defence, int distance, Point2D pos) { 
+    protected Character(String name, int priority, int health, int power, int agility, int defence, int distance, Point2D pos) { 
         this.name = name;
         this.priority = priority;
         this.health = getRound(health, 10);
@@ -118,6 +120,10 @@ public abstract class Character implements ActionInterface {
             }
         }
         return target;
+    }
+
+    public String getInfo() {
+        return this.toString() + history;
     }
 
 

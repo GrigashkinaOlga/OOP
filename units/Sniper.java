@@ -7,10 +7,10 @@ import java.util.ArrayList;
 
 public class Sniper extends Character {
 
-    private int arrows; // стрелы
-    private int maxArrows;
-    private int level;
-    private int effectivDistance;
+    protected int arrows; // стрелы
+    protected int maxArrows;
+    protected int level;
+    protected int effectivDistance;
     
     public Sniper(String name, Point2D pos) {
         super(name, 3, 800, 30, 30, 5, 16, pos);
