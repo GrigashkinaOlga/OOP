@@ -4,27 +4,37 @@ import units.Character;
 import java.util.ArrayList;
 import java.util.Random;
 
+
 public class main {
     
-    static ArrayList<Character> red = new ArrayList<>();
-    static ArrayList<Character> blue = new ArrayList<>();
+    public static ArrayList<Character> red = new ArrayList<>();
+    public static ArrayList<Character> blue = new ArrayList<>();
+    public static ArrayList<Character> all = new ArrayList<>();
     
     
     public static void main(String[] args) {
         
         createTeam(red, 10, 0);
         createTeam(blue, 10, 3);
-        System.out.println();
-        System.out.println(red + "\n");
-        System.out.println(blue);
+        all.addAll(blue);
+        all.addAll(red);
 
-        Sniper sniper = new Sniper("Arny", new Point2D(3, 4));
-        Character target = sniper.findNearestEnemy(blue);
-        System.out.println("Nearnest blue target at  " + target);
-        target = sniper.findNearestEnemy(red);
-        System.out.println("Nearnest red target at  " + target);
-    
+        all.sort((o1, o2) -> Integer.compare(o2.priority, o1.priority));
 
+        for (int i = 0; i <= 10; i++) {
+
+
+            for (Character ch : all) {
+                if (red.contains(ch)) {
+                    ch.step(blue, red);
+                }
+
+                else {
+                    ch.step(red, blue);
+                }
+                System.out.println();
+            }
+        }
     }
 
     public static void createTeam(ArrayList<Character> team, int num, int start) {

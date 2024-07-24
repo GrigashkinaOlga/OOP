@@ -1,6 +1,7 @@
 package units;
 
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public abstract class Character implements ActionInterface {
@@ -11,7 +12,7 @@ public abstract class Character implements ActionInterface {
     }
     
     protected String name;   // protected чтоб было видно только в пакете и наследниках, а в main нет
-    protected int priority;
+    public int priority;
     protected int health;  //приоритет хода
     protected final int maxHealth;  // здоровье
     protected final int power;
@@ -99,12 +100,24 @@ public abstract class Character implements ActionInterface {
     }
 
 
+    public Character findNearestPerson(ArrayList<Character> character)
+    {
+        Character target = null;
+        float minDistance = Float.MAX_VALUE;
 
-// опредление расстояния до другого персонажа
-    public float distanceTo(Character target) {
-        float x = position.getX() - target.position.getX();
-        float y = position.getY() - target.position.getY();
-        return (float) Math.sqrt(x*x + y*y);
+        for (Character ch : character)
+        {
+            if (ch.health > 0)
+            {
+                float dist = position.distanceTo(ch.position);
+                if (dist < minDistance)
+                {
+                    minDistance = dist;
+                    target = ch;
+                }
+            }
+        }
+        return target;
     }
 
 

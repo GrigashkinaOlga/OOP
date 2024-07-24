@@ -44,10 +44,7 @@ public class Monk extends Character {
         return String.format("[Монах] " + name + " " + position);
     }
 
-    @Override
-    public void step(ArrayList<Character> enemies) {
 
-    }
 
 
 

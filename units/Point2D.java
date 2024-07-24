@@ -19,7 +19,7 @@ public class Point2D {
     }
 
     public int getX() {return curX;}
-    public int getY() {return curX;}
+    public int getY() {return curY;}
 
     public void setXY(int x, int y)
     {
@@ -27,6 +27,14 @@ public class Point2D {
         curY = y;
     }
 
+
+    public void increment(int dx, int dy)
+    {
+        curX += dx;
+        curY += dy;
+    }
+
+    
     public void moveTo(int dx, int dy) {
         if (isMove(dx+curX, dy+curY)) {
             curX += dx;
@@ -34,13 +42,29 @@ public class Point2D {
         }
     }
 
+    public float fastDistance(Point2D target, int dx, int dy)
+    {
+        float tx = curX+dx - target.getX();
+        float ty = curY+dy - target.getY();
+        return (tx*tx + ty*ty);
+    }
+
+    public boolean equal(Point2D to)
+    {
+        return curX == to.curX && curY == to.curY;
+    }
+
+
     public String toString() {
         return curX + ":" +curY;
     }
 
-    public float distanceTo(Point2D position) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'distanceTo'");
+    // опредление расстояния до другого персонажа
+    public float distanceTo(Point2D target)
+    {
+        float x = curX - target.getX();
+        float y = curY - target.getY();
+        return (float) Math.sqrt(x*x + y*y);
     }
 
 

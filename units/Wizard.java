@@ -42,10 +42,6 @@ public class Wizard extends Character {
         return String.format("[Колдун] " + name + " " + position);
     }
 
-    @Override
-    public void step(ArrayList<Character> enemies) {
-
-    }
 
 
 

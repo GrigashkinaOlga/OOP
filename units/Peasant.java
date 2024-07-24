@@ -28,10 +28,6 @@ public class Peasant extends Character {
         return String.format("[Крестьянин] " + name + " " + position);
     }
 
-    @Override
-    public void step(ArrayList<Character> enemies) {
-
-    }
 
 
     

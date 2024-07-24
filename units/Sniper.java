@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class Sniper extends Character {
 
-    private int arrows; // боеприпасы
+    private int arrows; // стрелы
     private int maxArrows;
     private int level;
     private int effectivDistance;
@@ -31,22 +31,6 @@ public class Sniper extends Character {
     protected void setArrows(int arrows)
     {
         this.arrows = Math.min(arrows, maxArrows);
-    }
-
-    public Character findNearestEnemy(ArrayList<Character> enemies) {
-        Character target = null;
-        float distance = Integer.MAX_VALUE;
-
-        for (Character ch : enemies) 
-        {
-            float n = ch.distanceTo(this);
-            if (n < distance) 
-            {
-                distance = n;
-                target = ch;
-            }
-        }
-        return target;
     }
 
     @Override
@@ -84,13 +68,17 @@ public class Sniper extends Character {
 
 
     @Override
-    public void step(ArrayList<Character> enemies) {
+    public void step(ArrayList<Character> enemies, ArrayList<Character> friends) {
+        history = "";
 
         if (health <=0 || arrows <=0)
             return;
-        Character target = this.findNearestEnemy(enemies);
-        if (target != null) {
-            shot(target);
+        Character target = this.findNearestPerson(enemies);
+            if (target != null) {
+                shot(target);
+            }
+        else {
+        history = String.format(" ждёт подвоза стрел.");
         }
 
 
