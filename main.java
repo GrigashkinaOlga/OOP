@@ -28,11 +28,10 @@ public class main {
                 if (red.contains(ch)) {
                     ch.step(blue, red);
                 }
-
                 else {
                     ch.step(red, blue);
                 }
-                System.out.println();
+                System.out.println(ch.getInfo());
             }
         }
     }

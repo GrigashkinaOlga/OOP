@@ -33,7 +33,7 @@ public class Crossbowman extends Character {
 
     @Override
     public String toString() {
-        return String.format("[Арбалетчик] " + name + " " + position);
+        return String.format("[Арбалетчик] " + name + " " + position.toString());
     }
 
     protected void shot(Character target) {

@@ -43,7 +43,7 @@ public class Peasant extends Character {
 
         for (Character friend : friends)
         {
-            if (friend.getHeals() > 0 && friend instanceof Character)
+            if (friend.getHeals() > 0 && friend instanceof Sniper)
             {
                 if (min > ((Sniper) friend).getArrows())
                 {
