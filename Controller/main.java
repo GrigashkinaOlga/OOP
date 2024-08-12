@@ -88,7 +88,7 @@ public class main {
 
     public static void createTeam(ArrayList<Character> team, int num, int start) {
         Random rnd = new Random();
-        int cy = 1;
+        int cy = 0;
         while (num-- > 0)
         {
             int n = start + rnd.nextInt(4);
